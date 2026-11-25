@@ -1,0 +1,142 @@
+<!doctype html><html lang="fil"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#093a8b"><title>Window Card 1 · e-ARAL Hub</title><link rel="icon" type="image/png" href="linasin-es-logo.png"><link rel="stylesheet" href="style.css"><style id="duel-css">
+/* Duel UI is self-contained so window1.html alone can be replaced on GitHub Pages. */
+.duel-mode-tabs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}.duel-mode-btn{border:2px solid #c7dcf0;background:#fff;padding:18px 14px;border-radius:15px;font-size:clamp(15px,1.7vw,20px);font-weight:850;color:#143a74;cursor:pointer}.duel-mode-btn.active{background:#0a448e;border-color:#0a448e;color:#fff}.duel-setup h2{margin:8px 0 10px;font-size:clamp(24px,3vw,34px)}.duel-settings{display:grid;grid-template-columns:1fr 1fr;gap:16px}.duel-settings label{font-weight:800;display:flex;flex-direction:column;gap:8px;color:#183e72}.duel-settings select,.duel-settings input{width:100%;padding:13px 12px;border:1px solid #b4cae2;border-radius:12px;font:inherit;color:#183e72;background:#fff}.duel-setup-action{margin-top:18px}.duel-setup-action .btn{min-height:52px}.duel-stage[hidden],.duel-setup[hidden],#duelSolo[hidden],.duel-result[hidden]{display:none!important}
+.duel-stage{position:fixed;inset:0;z-index:9999;background:#ebf2fc;color:#112957;display:flex;flex-direction:column;min-height:100vh;min-height:100dvh;overflow:auto;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;touch-action:manipulation;user-select:none;-webkit-user-select:none}
+.duel-head{display:flex;align-items:center;justify-content:space-between;background:#0a2d6f;color:#fff;min-height:70px;gap:12px;padding:10px clamp(12px,2vw,28px)}.duel-badge{font-weight:900;letter-spacing:.03em;font-size:clamp(11px,1.25vw,17px)}#duelTopOperation{font-size:clamp(10px,1.2vw,15px);font-weight:750}.duel-clock{font-variant-numeric:tabular-nums;font-size:clamp(27px,3.1vw,44px);color:#fff}.duel-clock.danger{color:#ffbf4b;animation:duelTick .6s ease-in-out infinite alternate}.duel-exit{background:#ffffff2b;border:2px solid #ffffff8c;border-radius:11px;padding:8px 16px;color:#fff;font-size:21px;cursor:pointer}
+.duel-rope{height:100px;display:flex;align-items:center;gap:10px;padding:10px clamp(10px,2vw,28px)}.duel-counter{font-weight:950;font-variant-numeric:tabular-nums;font-size:clamp(32px,4vw,56px);width:105px;display:flex;align-items:baseline;gap:5px}.duel-counter small{font-size:12px;font-weight:750}.duel-counter.left{color:#1767c9}.duel-counter.right{color:#ce324d;justify-content:flex-end}.duel-track{position:relative;min-width:0;flex:1;height:36px;border-radius:99px;background:linear-gradient(90deg,#2a75d4 0 50%,#e94863 50% 100%);box-shadow:inset 0 0 0 3px #fff,0 2px 9px #0a307331;overflow:visible}.duel-centerline{position:absolute;left:50%;height:56px;top:-10px;border-left:3px dashed #304365;z-index:1}.duel-rope-line{position:absolute;top:calc(50% - 3px);height:6px;left:7%;right:7%;background:repeating-linear-gradient(115deg,#f9de9b 0px,#f9de9b 5px,#be833f 6px,#be833f 8px);border-radius:3px;box-shadow:0 1px 4px #0003}.duel-flag{position:absolute;left:50%;top:-22px;font-size:48px;line-height:1;transform:translateX(-50%);z-index:3;transition:left .22s ease;filter:drop-shadow(0 2px 3px #15284f99)}
+.duel-players{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px 12px;flex:1;min-height:0}.duel-player{border-radius:18px;border:4px solid transparent;padding:clamp(10px,1.5vw,22px);display:flex;flex-direction:column;align-items:stretch;min-width:0;background:#fff;box-shadow:0 3px 18px #1f4c781e}.duel-blue{border-color:#1874d4;background:linear-gradient(180deg,#dceeff,#f9fbff)}.duel-red{border-color:#e14962;background:linear-gradient(180deg,#ffe2e9,#fff9fa)}.duel-player-head{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:clamp(16px,2vw,29px);font-weight:950}.duel-blue .duel-player-head{color:#1155ab}.duel-red .duel-player-head{color:#be2844}.duel-player-head span{font-size:clamp(13px,1.5vw,20px);font-variant-numeric:tabular-nums}.duel-problem{font-size:clamp(37px,5.5vw,76px);font-weight:950;text-align:center;margin:6px 0 2px;line-height:1.1;letter-spacing:-.02em;white-space:nowrap}.duel-entry{font-size:clamp(27px,3.2vw,46px);font-weight:900;min-height:48px;background:#fff;border:2px solid #a9bed8;border-radius:12px;text-align:center;margin:2px auto 10px;padding:2px 12px;min-width:35%;font-variant-numeric:tabular-nums}.duel-pad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:minmax(43px,1fr);gap:clamp(4px,.7vw,10px);flex:1;max-height:370px;width:100%;max-width:390px;margin:auto;min-height:205px}.duel-key{border-radius:13px;border:2px solid #c1d4e8;background:#fff;color:#132e5f;font-size:clamp(23px,3vw,42px);font-weight:900;cursor:pointer;touch-action:none;user-select:none;-webkit-tap-highlight-color:transparent;box-shadow:0 4px 0 #b3cde8;min-height:43px}.duel-key:active{transform:translateY(3px);box-shadow:0 1px 0 #b3cde8}.duel-key.special{background:#edf2fa;color:#173f77}.duel-key.submit{background:#13a26f;color:#fff;border-color:#08774c;box-shadow:0 4px 0 #08774c}.duel-feedback{font-weight:800;text-align:center;min-height:27px;margin-top:8px;font-size:clamp(12px,1.4vw,18px);color:#426082}.duel-player.correct{box-shadow:0 0 0 6px #38cf8d inset}.duel-player.wrong{box-shadow:0 0 0 6px #f5a34e inset}.duel-player.done .duel-pad{opacity:.5;pointer-events:none}.duel-bottom{text-align:center;padding:9px 10px;font-size:clamp(11px,1.2vw,15px);color:#4e607c;font-weight:700;background:#dfeaf7}
+.duel-result{position:absolute;inset:0;background:#07172dc9;z-index:9;display:grid;place-items:center;padding:20px}.duel-result-card{text-align:center;max-width:640px;width:100%;background:#fff;padding:clamp(24px,4vw,50px);border-radius:24px;box-shadow:0 16px 60px #0006}.duel-result-star{font-size:66px}.duel-result h2{font-size:clamp(30px,4vw,48px);margin:5px 0 12px;color:#103b78}.duel-result p{font-size:clamp(18px,2.2vw,26px);font-weight:800}.duel-result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+@keyframes duelTick{from{opacity:1}to{opacity:.65}}
+@media(max-width:750px){.duel-mode-tabs,.duel-settings{grid-template-columns:1fr}.duel-stage{overflow:auto}.duel-head{flex-wrap:wrap;min-height:55px}.duel-badge{display:none}.duel-rope{height:65px}.duel-counter{width:65px}.duel-players{grid-template-columns:1fr;flex:none}.duel-player{min-height:430px}.duel-pad{min-height:230px}.duel-bottom{position:relative}}
+@media(max-height:790px) and (min-width:751px){.duel-head{min-height:56px}.duel-rope{height:70px}.duel-player{padding:10px}.duel-problem{font-size:clamp(36px,5vw,58px)}.duel-entry{font-size:28px;min-height:40px;margin:2px auto 6px}.duel-pad{max-height:none;min-height:180px}.duel-feedback{font-size:13px;margin-top:4px}}
+</style></head>
+<body data-window-level="1"><header class="top"><div class="nav"><a href="index.html" class="school-brand"><img src="linasin-es-logo.png" alt="Logo ng Linasin Elementary School" class="school-seal"><span class="brand-copy"><span class="school-name">LINASIN ELEMENTARY SCHOOL</span><strong class="brand-title"><span class="brand-e">e-</span>ARAL <span class="brand-hub">Hub</span></strong><span class="brand-tagline">Adaptive Reading, Arithmetic, and Learning</span></span></a><a href="index.html" class="go">← Main Index</a></div></header>
+<main class="wrap"><section class="window-hero"><div class="eyebrow">⚡ 100-ITEM MATH WINDOW CARDS</div><h1>Window Card 1 · Basic Facts</h1><p>Pumili ng Solo Window Card o 2-Player Tug-of-War. Ang solo mode ay may 100 items bawat operation.</p></section><div class="duel-mode-tabs" role="group" aria-label="Piliin ang paraan ng laro">
+<button class="duel-mode-btn active" id="duelSoloMode" type="button" aria-pressed="true">⚡ Solo · 100-Item Window Card</button>
+<button class="duel-mode-btn" id="duelGameMode" type="button" aria-pressed="false">🏆 2-Player Tug-of-War</button>
+</div>
+<div id="duelSolo"><div id="windowApp"></div></div>
+<section class="card duel-setup" id="duelSetup" hidden>
+ <span class="eyebrow">CLASSROOM GAME • ONE INTERACTIVE SCREEN</span>
+ <h2>2-Player Math Tug-of-War</h2>
+ <p class="muted">Dalawang panig, dalawang touch keypad, at iisang lubid. Bawat tamang sagot ay humihila sa marker. Paramihan ng <strong>tamang sagot</strong> bago matapos ang oras.</p>
+ <div class="duel-settings">
+ <label>Operation<select id="duelOperation"><option value="add">➕ Addition</option><option value="sub">➖ Subtraction</option><option value="mul">✖ Multiplication</option><option value="div">➗ Division</option></select></label>
+ <label>Oras<select id="duelDuration"><option value="300">5 minuto · Regular</option><option value="180">3 minuto</option><option value="60">1 minuto · Quick Demo</option></select></label>
+ <label>Team sa Kaliwa<input id="duelNameLeft" type="text" maxlength="18" placeholder="BLUE TEAM" value="BLUE TEAM"></label>
+ <label>Team sa Kanan<input id="duelNameRight" type="text" maxlength="18" placeholder="RED TEAM" value="RED TEAM"></label>
+ </div>
+ <div class="duel-setup-action"><button type="button" id="duelStart" class="btn teal">🎮 Simulan ang Labanan</button><p class="mini">Best sa interactive projector na may 2-point multi-touch. Puwede ring subukan gamit ang mouse, salitan. Walang internet na kailangan kung pareho silang nasa iisang screen.</p></div>
+</section>
+<div id="duelStage" class="duel-stage" hidden aria-label="Dalawang panig na Math Tug-of-War">
+ <div class="duel-head"><span class="duel-badge">e-ARAL Hub · WINDOW CARD 1</span><span id="duelTopOperation">ADDITION • 100 BASIC FACTS</span><strong class="duel-clock" id="duelClock">05:00</strong><button id="duelExit" type="button" class="duel-exit" aria-label="Lumabas sa laban">✕</button></div>
+ <div class="duel-rope" aria-label="Tug of war score meter">
+  <span class="duel-counter left" id="duelCountLeft">0 <small>tama</small></span>
+  <div class="duel-track"><span class="duel-centerline"></span><span class="duel-flag" id="duelFlag">🏳️</span><span class="duel-rope-line"></span></div>
+  <span class="duel-counter right" id="duelCountRight">0 <small>tama</small></span>
+ </div>
+ <div class="duel-players">
+  <section class="duel-player duel-blue" id="duelPlayerLeft" aria-label="Kaliwang team">
+    <div class="duel-player-head"><strong id="duelLabelLeft">BLUE TEAM</strong><span id="duelItemsLeft">1 / 100</span></div>
+    <div class="duel-problem" id="duelProblemLeft">8 + 7 = ?</div>
+    <div class="duel-entry" id="duelEntryLeft" aria-live="polite">—</div>
+    <div class="duel-pad" data-side="left"></div><div class="duel-feedback" id="duelFeedbackLeft" aria-live="polite">Pindutin ang mga numero at ✓</div>
+  </section>
+  <section class="duel-player duel-red" id="duelPlayerRight" aria-label="Kanang team">
+    <div class="duel-player-head"><strong id="duelLabelRight">RED TEAM</strong><span id="duelItemsRight">1 / 100</span></div>
+    <div class="duel-problem" id="duelProblemRight">8 + 7 = ?</div>
+    <div class="duel-entry" id="duelEntryRight" aria-live="polite">—</div>
+    <div class="duel-pad" data-side="right"></div><div class="duel-feedback" id="duelFeedbackRight" aria-live="polite">Pindutin ang mga numero at ✓</div>
+  </section>
+ </div>
+ <div class="duel-bottom">Bawat panig ay may sariling 100-item listahan • ✓ = sagot at susunod • Walang pagbawas kapag mali</div>
+ <div class="duel-result" id="duelResult" hidden><div class="duel-result-card"><div class="duel-result-star">🏆</div><h2 id="duelWinner">Tapos na!</h2><p id="duelResultScores"></p><div class="duel-result-actions"><button type="button" id="duelRematch" class="btn teal">🔁 Rematch</button><button type="button" id="duelReturn" class="btn secondary">Bumalik</button></div></div></div>
+</div><p class="footer">e-ARAL Hub · Linasin Elementary School · Ang progress ay naka-save sa browser na ito hanggang ibahagi.</p></main><script src="window-data.js"></script><script src="window-app.js"></script><script id="duel-js">
+(()=>{'use strict';
+ const $=id=>document.getElementById(id), api=window.EARAL_WINDOW;
+ const soloBtn=$('duelSoloMode'),battleBtn=$('duelGameMode'),solo=$('duelSolo'),setup=$('duelSetup'),stage=$('duelStage');
+ let state=null,ticker=null;
+ const shuffle=arr=>{const out=arr.slice();for(let i=out.length-1;i>0;i--){const k=Math.floor(Math.random()*(i+1));[out[i],out[k]]=[out[k],out[i]]}return out};
+ const safeName=(id,def)=>($(id).value.trim()||def).slice(0,18);
+ function setMode(mode){const game=mode==='game';solo.hidden=game;setup.hidden=!game;soloBtn.classList.toggle('active',!game);battleBtn.classList.toggle('active',game);soloBtn.setAttribute('aria-pressed',String(!game));battleBtn.setAttribute('aria-pressed',String(game));}
+ soloBtn.addEventListener('click',()=>setMode('solo'));battleBtn.addEventListener('click',()=>setMode('game'));
+ const digitKeys=['7','8','9','4','5','6','1','2','3','⌫','0','✓'];
+ for(const side of ['left','right']){
+  const pad=document.querySelector('.duel-pad[data-side="'+side+'"]');
+  pad.innerHTML=digitKeys.map(d=>'<button type="button" class="duel-key '+(d==='✓'?'submit':d==='⌫'?'special':'')+'" data-key="'+d+'" aria-label="'+(d==='✓'?'Isumite ang sagot':d==='⌫'?'Burahin ang huling numero':d)+'">'+d+'</button>').join('');
+  // Handle touch/pen at pointerdown for simultaneous multi-touch on supported projectors.
+  let touchAt=0,touchKey=null;
+  pad.addEventListener('pointerdown',e=>{const el=e.target.closest('[data-key]');if(!el)return;
+   if(e.pointerType==='touch'||e.pointerType==='pen'){touchAt=performance.now();touchKey=el;e.preventDefault();press(side,el.dataset.key)}
+  });
+  // Click remains available for mouse and keyboard, without double-registering a touch.
+  pad.addEventListener('click',e=>{const el=e.target.closest('[data-key]');if(!el)return;
+   if(el===touchKey&&performance.now()-touchAt<750)return;
+   press(side,el.dataset.key)
+  });
+ }
+ const label=s=>s==='left'?'Left':'Right';
+ const fmt=secs=>{const s=Math.max(0,secs);return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')};
+ function initPlayer(name,questions){return {name,questions,at:0,correct:0,wrong:0,entry:'',finished:false}};
+ function player(id){return state?.players[id]}
+ function getElem(side,what){return $('duel'+what+label(side))}
+ function paintPlayer(side){const p=player(side);if(!p)return;
+  getElem(side,'Label').textContent=p.name;
+  getElem(side,'Items').textContent=p.finished?'Tapos!':(p.at+1)+' / 100';
+  getElem(side,'Problem').textContent=p.finished?'🏁 FINISHED':p.questions[p.at].text;
+  getElem(side,'Entry').textContent=p.entry||'—';
+  getElem(side,'Count').innerHTML=p.correct+' <small>tama</small>';
+  $('duelPlayer'+label(side)).classList.toggle('done',p.finished);
+ }
+ function paintRope(){if(!state)return;const delta=state.players.right.correct-state.players.left.correct;
+  // Keep marker within rope as the lead widens. Relative score difference is decisive.
+  const pct=50+42*Math.tanh(delta/8);
+  $('duelFlag').style.left=pct.toFixed(2)+'%';
+ }
+ function press(side,key){if(!state||state.ended)return;const p=player(side);if(!p||p.finished)return;
+  if(key==='⌫'){p.entry=p.entry.slice(0,-1);getElem(side,'Entry').textContent=p.entry||'—';return}
+  if(key!=='✓'){if(p.entry.length<4){p.entry+=key;getElem(side,'Entry').textContent=p.entry}return}
+  if(!p.entry)return;
+  const good=Number(p.entry)===p.questions[p.at].answer;
+  if(good)p.correct++;else p.wrong++;
+  const panel=$('duelPlayer'+label(side));panel.classList.toggle('correct',good);panel.classList.toggle('wrong',!good);
+  getElem(side,'Feedback').textContent=good?'✓ Tama! +1':'Subukan ulit sa susunod!';
+  setTimeout(()=>{panel.classList.remove('correct','wrong')},220);
+  p.at++;p.entry='';p.finished=p.at>=100;
+  paintPlayer(side);paintRope();
+  if(state.players.left.finished&&state.players.right.finished)finish();
+ }
+ function start(){if(state){clearInterval(ticker);ticker=null}
+  const op=$('duelOperation').value;
+  const sameBank=api.generate(1,op); // Equal set of 100 facts; each player gets a shuffled order.
+  const secs=Number($('duelDuration').value)||300;
+  state={op,duration:secs,deadline:Date.now()+secs*1000,players:{left:initPlayer(safeName('duelNameLeft','BLUE TEAM'),shuffle(sameBank)),right:initPlayer(safeName('duelNameRight','RED TEAM'),shuffle(sameBank))},ended:false};
+  $('duelTopOperation').textContent=api.OPERATIONS[op].label.toUpperCase()+' · 100 FACTS BAWAT PANIG';
+  $('duelClock').textContent=fmt(secs);$('duelClock').classList.remove('danger');
+  stage.hidden=false;$('duelResult').hidden=true;
+  for(const s of ['left','right']){getElem(s,'Feedback').textContent='Type gamit ang keypad, saka ✓';paintPlayer(s)}
+  paintRope();
+  ticker=setInterval(()=>{if(!state||state.ended)return;const seconds=Math.max(0,Math.ceil((state.deadline-Date.now())/1000));$('duelClock').textContent=fmt(seconds);$('duelClock').classList.toggle('danger',seconds<=20);if(seconds===0)finish()},150);
+  // A full-screen request can be blocked by the projector/browser; stage still works without it.
+  if(stage.requestFullscreen&&!document.fullscreenElement){try{let p=stage.requestFullscreen();if(p?.catch)p.catch(()=>{})}catch{}}
+ }
+ function finish(){if(!state||state.ended)return;state.ended=true;clearInterval(ticker);ticker=null;
+  const l=state.players.left,r=state.players.right;
+  const winner=l.correct===r.correct?'🤝 Tabla!':(l.correct>r.correct?'🔵 '+l.name:'🔴 '+r.name)+' ang panalo!';
+  $('duelWinner').textContent=winner;
+  $('duelResultScores').textContent=l.name+': '+l.correct+'/100 · '+r.name+': '+r.correct+'/100';
+  $('duelResult').hidden=false;
+  try{localStorage.setItem('e-aral-window1-duel-last',JSON.stringify({date:new Date().toISOString(),operation:state.op,left:l.name,leftScore:l.correct,right:r.name,rightScore:r.correct,duration:state.duration}))}catch{}
+ }
+ function exit(){if(state&&!state.ended&&!confirm('Tapusin ang laban at bumalik?'))return;
+  clearInterval(ticker);ticker=null;state=null;stage.hidden=true;$('duelResult').hidden=true;
+  if(document.fullscreenElement){try{document.exitFullscreen().catch(()=>{})}catch{}}
+ }
+ $('duelStart').addEventListener('click',start);
+ $('duelExit').addEventListener('click',exit);
+ $('duelRematch').addEventListener('click',start);
+ $('duelReturn').addEventListener('click',exit);
+ document.addEventListener('visibilitychange',()=>{if(state&&!state.ended&&Date.now()>=state.deadline)finish()});
+ // Standalone dual keypads don't use focused input fields; two separate touches can register independently.
+})();
+</script></body></html>

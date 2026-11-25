@@ -1,0 +1,5 @@
+const CACHE='e-aral-hub-v15-100-per-operation-20261125';
+const FILES=['./','./index.html','./style.css','./linasin-es-logo.png','./lessons.js','./bank.js','./app.js','./print.html','./window-print.html','./window1.html','./window2.html','./window-data.js','./window-app.js','./images/aso.png','./images/bola.png','./images/mata.png','./images/pusa.png','./images/saging.png','./images/ibon.png','./images/lapis.png','./images/isda.png','./images/puno.png','./images/araw.png','./images/baso.png',...Array.from({length:7},(_,i)=>'./grade'+i+'.html')];
+self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)));self.skipWaiting()});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));self.clients.claim()});
+self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(fetch(e.request).then(r=>{if(r.ok){const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy))}return r}).catch(()=>caches.match(e.request)))});
