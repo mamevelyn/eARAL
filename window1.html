@@ -7,7 +7,32 @@
 .duel-players{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px 12px;flex:1;min-height:0}.duel-player{border-radius:18px;border:4px solid transparent;padding:clamp(10px,1.5vw,22px);display:flex;flex-direction:column;align-items:stretch;min-width:0;background:#fff;box-shadow:0 3px 18px #1f4c781e}.duel-blue{border-color:#1874d4;background:linear-gradient(180deg,#dceeff,#f9fbff)}.duel-red{border-color:#e14962;background:linear-gradient(180deg,#ffe2e9,#fff9fa)}.duel-player-head{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:clamp(16px,2vw,29px);font-weight:950}.duel-blue .duel-player-head{color:#1155ab}.duel-red .duel-player-head{color:#be2844}.duel-player-head span{font-size:clamp(13px,1.5vw,20px);font-variant-numeric:tabular-nums}.duel-problem{font-size:clamp(37px,5.5vw,76px);font-weight:950;text-align:center;margin:6px 0 2px;line-height:1.1;letter-spacing:-.02em;white-space:nowrap}.duel-entry{font-size:clamp(27px,3.2vw,46px);font-weight:900;min-height:48px;background:#fff;border:2px solid #a9bed8;border-radius:12px;text-align:center;margin:2px auto 10px;padding:2px 12px;min-width:35%;font-variant-numeric:tabular-nums}.duel-pad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:minmax(43px,1fr);gap:clamp(4px,.7vw,10px);flex:1;max-height:370px;width:100%;max-width:390px;margin:auto;min-height:205px}.duel-key{border-radius:13px;border:2px solid #c1d4e8;background:#fff;color:#132e5f;font-size:clamp(23px,3vw,42px);font-weight:900;cursor:pointer;touch-action:none;user-select:none;-webkit-tap-highlight-color:transparent;box-shadow:0 4px 0 #b3cde8;min-height:43px}.duel-key:active{transform:translateY(3px);box-shadow:0 1px 0 #b3cde8}.duel-key.special{background:#edf2fa;color:#173f77}.duel-key.submit{background:#13a26f;color:#fff;border-color:#08774c;box-shadow:0 4px 0 #08774c}.duel-feedback{font-weight:800;text-align:center;min-height:27px;margin-top:8px;font-size:clamp(12px,1.4vw,18px);color:#426082}.duel-player.correct{box-shadow:0 0 0 6px #38cf8d inset}.duel-player.wrong{box-shadow:0 0 0 6px #f5a34e inset}.duel-player.done .duel-pad{opacity:.5;pointer-events:none}.duel-bottom{text-align:center;padding:9px 10px;font-size:clamp(11px,1.2vw,15px);color:#4e607c;font-weight:700;background:#dfeaf7}
 .duel-result{position:absolute;inset:0;background:#07172dc9;z-index:9;display:grid;place-items:center;padding:20px}.duel-result-card{text-align:center;max-width:640px;width:100%;background:#fff;padding:clamp(24px,4vw,50px);border-radius:24px;box-shadow:0 16px 60px #0006}.duel-result-star{font-size:66px}.duel-result h2{font-size:clamp(30px,4vw,48px);margin:5px 0 12px;color:#103b78}.duel-result p{font-size:clamp(18px,2.2vw,26px);font-weight:800}.duel-result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
 @keyframes duelTick{from{opacity:1}to{opacity:.65}}
-@media(max-width:750px){.duel-mode-tabs,.duel-settings{grid-template-columns:1fr}.duel-stage{overflow:auto}.duel-head{flex-wrap:wrap;min-height:55px}.duel-badge{display:none}.duel-rope{height:65px}.duel-counter{width:65px}.duel-players{grid-template-columns:1fr;flex:none}.duel-player{min-height:430px}.duel-pad{min-height:230px}.duel-bottom{position:relative}}
+@media(max-width:750px){
+ .duel-mode-tabs,.duel-settings{grid-template-columns:1fr}
+ .duel-stage{overflow:auto}
+ .duel-head{min-height:48px;padding:6px 8px;gap:5px;flex-wrap:nowrap}
+ .duel-badge{display:none}
+ #duelTopOperation{font-size:10px;max-width:55%;line-height:1.15}
+ .duel-clock{font-size:23px;white-space:nowrap}
+ .duel-exit{font-size:17px;padding:4px 10px}
+ .duel-rope{height:55px;padding:5px 7px;gap:5px}
+ .duel-counter{width:40px;font-size:22px;gap:1px}
+ .duel-counter small{font-size:8px}
+ .duel-track{height:26px}
+ .duel-flag{font-size:34px;top:-15px}
+ .duel-players{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px;padding:3px 6px 7px;flex:1;min-height:0}
+ .duel-player{border-width:2px;padding:5px;border-radius:11px;min-height:295px}
+ .duel-player-head{gap:3px;font-size:clamp(10px,3vw,15px);flex-wrap:wrap}
+ .duel-player-head span{font-size:10px}
+ .duel-problem{font-size:clamp(20px,5.5vw,35px);white-space:normal;margin:6px 0 2px}
+ .duel-entry{font-size:23px;min-height:33px;width:100%;min-width:0;margin:4px 0 5px;padding:0 3px}
+ .duel-pad{max-height:none;min-height:190px;grid-auto-rows:minmax(43px,1fr);gap:3px}
+ .duel-key{font-size:clamp(20px,5vw,28px);border-width:1px;border-radius:8px;min-height:43px;box-shadow:0 2px 0 #b3cde8}
+ .duel-feedback{font-size:10px;min-height:15px;margin-top:4px}
+}
+@media(max-width:380px){.duel-players{gap:4px;padding:3px}.duel-player{padding:3px}.duel-key{font-size:21px;min-height:40px}.duel-pad{grid-auto-rows:minmax(40px,1fr);min-height:175px}}
+@media(max-height:520px) and (orientation:landscape){.duel-head{min-height:44px}.duel-rope{height:50px}.duel-pad{min-height:180px;grid-auto-rows:minmax(38px,1fr)}.duel-key{min-height:38px}.duel-player{min-height:255px}}
+
 @media(max-height:790px) and (min-width:751px){.duel-head{min-height:56px}.duel-rope{height:70px}.duel-player{padding:10px}.duel-problem{font-size:clamp(36px,5vw,58px)}.duel-entry{font-size:28px;min-height:40px;margin:2px auto 6px}.duel-pad{max-height:none;min-height:180px}.duel-feedback{font-size:13px;margin-top:4px}}
 </style></head>
 <body data-window-level="1"><header class="top"><div class="nav"><a href="index.html" class="school-brand"><img src="linasin-es-logo.png" alt="Logo ng Linasin Elementary School" class="school-seal"><span class="brand-copy"><span class="school-name">LINASIN ELEMENTARY SCHOOL</span><strong class="brand-title"><span class="brand-e">e-</span>ARAL <span class="brand-hub">Hub</span></strong><span class="brand-tagline">Adaptive Reading, Arithmetic, and Learning</span></span></a><a href="index.html" class="go">← Main Index</a></div></header>
@@ -49,7 +74,6 @@
     <div class="duel-pad" data-side="right"></div><div class="duel-feedback" id="duelFeedbackRight" aria-live="polite">Pindutin ang mga numero at ✓</div>
   </section>
  </div>
- <div class="duel-bottom">Bawat panig ay may sariling 100-item listahan • ✓ = sagot at susunod • Walang pagbawas kapag mali</div>
  <div class="duel-result" id="duelResult" hidden><div class="duel-result-card"><div class="duel-result-star">🏆</div><h2 id="duelWinner">Tapos na!</h2><p id="duelResultScores"></p><div class="duel-result-actions"><button type="button" id="duelRematch" class="btn teal">🔁 Rematch</button><button type="button" id="duelReturn" class="btn secondary">Bumalik</button></div></div></div>
 </div><p class="footer">e-ARAL Hub · Linasin Elementary School · Ang progress ay naka-save sa browser na ito hanggang ibahagi.</p></main><script src="window-data.js"></script><script src="window-app.js"></script><script id="duel-js">
 (()=>{'use strict';
